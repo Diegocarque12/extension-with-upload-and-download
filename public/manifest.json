@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Interceptor Extension",
+  "version": "1.0.0",
+  "description": "Intercepts the downloads and the file picker, then shows custom dialog",
+  "permissions": [
+    "downloads",
+    "storage",
+    "activeTab",
+    "scripting",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html"
+  }
+}
